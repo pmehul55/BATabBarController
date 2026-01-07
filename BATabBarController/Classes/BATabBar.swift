@@ -203,19 +203,6 @@ class BATabBar: UIView {
             tabBarItem.strokeColor = barItemStrokeColor
             tabBarItem.strokeWidth = barItemLineWidth
             tabBarItem.addTarget(self, action: #selector(didSelectItem(_:)), for: .touchUpInside)
-            
-            //this is to avoid users pressing down on multiple tab items at once
-            tabBarItem.addTarget(self, action: #selector(disableAllButtonsBut(_:)), for: .touchDown)
-
-        }
-    }
-    
-    @objc func disableAllButtonsBut(_ sender: BATabBarItem){
-        for i in 0..<tabBarItems.count {
-            let tabBarItem = tabBarItems[i]
-            if(tabBarItem != sender) {
-                tabBarItem.isUserInteractionEnabled = false
-            }
         }
     }
     
